@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BigBiteBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a4c71d65d20fe425ba7cbdea6d4831d379b45cd")]
 [assembly: System.Reflection.AssemblyProductAttribute("BigBiteBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BigBiteBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
