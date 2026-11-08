@@ -1,0 +1,455 @@
+/* --- Variables de Color (Paleta Gourmet) --- */
+:root {
+    --bg-main: #1A1A1A;        /* Gris Carbón / Fondo General */
+    --bg-card: #2A2A2A;        /* Gris más claro para tarjetas */
+    --color-primary: #FF5722;  /* Naranja Neón (Llamados a la acción) */
+    --color-text: #F5F5F5;     /* Blanco Humo */
+    --color-text-muted: #B0B0B0; /* Gris para textos secundarios */
+}
+
+/* --- Reseteo Básico --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--color-text);
+}
+
+/* Desplazamiento suave para los links de la barra de navegación */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Barra de Navegación --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #111; /* Aún más oscuro para contrastar con el fondo */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.logo h1 {
+    color: var(--color-primary);
+    font-weight: 900;
+    font-style: italic;
+}
+
+.nav-links a {
+    color: var(--color-text);
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.cart-icon {
+    position: relative;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 0.8rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+/* Botones Generales */
+.btn-login, .btn-primary, .btn-add-cart {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-login {
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-login:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover, .btn-add-cart:hover {
+    background-color: #E64A19;
+    transform: scale(1.05);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* --- Banner Principal (Hero) --- */
+.hero {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Temporalmente usamos un gradiente, luego puedes poner una imagen de fondo */
+    background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1500') center/cover;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--color-text-muted);
+}
+
+/* --- Sección Menú --- */
+.menu-section {
+    padding: 4rem 5%;
+}
+
+.menu-section h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+}
+
+/* CSS GRID para que sea responsivo automáticamente */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.product-info h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.btn-add-cart {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+}
+
+/* --- Pie de Página --- */
+.footer {
+    background-color: #111;
+    padding: 2rem 5%;
+    text-align: center;
+    border-top: 1px solid #333;
+    margin-top: 2rem;
+}
+
+.footer p {
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+}
+
+/* --- Ventanas Flotantes (Modales) --- */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex; /* Se muestra cuando tiene la clase active */
+}
+
+.modal-content {
+    background-color: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    border: 1px solid #444;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-text-muted);
+}
+
+.close-btn:hover { color: var(--color-primary); }
+
+.input-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-muted);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #111;
+    color: white;
+}
+
+/* --- Sección Promociones --- */
+.promo-section, .about-section {
+    padding: 4rem 5%;
+}
+
+.promo-section h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+}
+
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.promo-card {
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    padding: 2rem;
+    position: relative;
+    border: 1px solid #444;
+}
+
+.promo-badge {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.promo-info h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.promo-info p {
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+/* --- Sección Nosotros --- */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    background-color: #111;
+    padding: 3rem;
+    border-radius: 15px;
+}
+
+.about-text h3 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.about-text p {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* --- Panel Lateral del Carrito --- */
+.cart-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1001; /* Queda sobre el header */
+}
+
+.cart-overlay.active { display: block; }
+
+.cart-panel {
+    position: fixed;
+    top: 0; right: -100%; /* Oculto fuera de la pantalla por defecto */
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    background-color: var(--bg-card);
+    z-index: 1002;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-panel.active { right: 0; /* Se desliza hacia adentro */ }
+
+.cart-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-header h2 { color: var(--color-primary); }
+
+.close-cart {
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-text-muted);
+}
+
+.close-cart:hover { color: var(--color-primary); }
+
+.cart-items {
+    padding: 1.5rem;
+    flex-grow: 1;
+    overflow-y: auto; /* Agrega scroll si hay muchas hamburguesas */
+}
+
+.empty-cart-msg {
+    text-align: center;
+    color: var(--color-text-muted);
+    margin-top: 2rem;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #444;
+}
+
+.cart-item-title { font-weight: bold; margin-bottom: 0.3rem;}
+.cart-item-price { color: var(--color-primary); }
+
+.cart-footer {
+    padding: 1.5rem;
+    border-top: 1px solid #444;
+    background-color: #111;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* --- Diseño Responsivo General (Teléfonos Móviles) --- */
+@media (max-width: 768px) {
+    
+    /* 1. Ajustes del Menú de Navegación */
+    .nav-links {
+        display: none; /* Oculta los links normalmente */
+    }
+    
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        width: 100%;
+        background-color: #111;
+        padding: 1rem 0;
+        border-bottom: 2px solid var(--color-primary);
+    }
+    
+    .mobile-menu-btn {
+        display: block; /* Muestra el botón de hamburguesa */
+    }
+
+    /* 2. Ajuste del texto del Banner Principal */
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    /* 3. Ajuste de la sección Nosotros */
+    .about-content {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+}
